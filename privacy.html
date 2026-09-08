@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yamora privacy policy.">
+  <meta name="theme-color" content="#0a1018">
+  <title>Privacy Policy — Yamora</title>
+  <style>
+    :root { color-scheme: dark; --bg:#070b11; --panel:#0e1520; --text:#f5f7fb; --muted:#aeb8c8; --line:#263247; --cyan:#46d9d0; }
+    * { box-sizing: border-box; }
+    body { margin:0; color:var(--text); background:var(--bg); font:16px/1.72 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(860px,calc(100% - 40px)); margin:0 auto; padding:54px 0 80px; }
+    a { color:var(--cyan); }
+    .back { display:inline-block; margin-bottom:28px; text-decoration:none; }
+    article { padding:clamp(22px,5vw,48px); border:1px solid var(--line); border-radius:22px; background:var(--panel); }
+    h1 { margin:0 0 8px; font-size:clamp(34px,7vw,54px); letter-spacing:-.04em; line-height:1.08; }
+    h2 { margin:38px 0 10px; font-size:23px; line-height:1.25; }
+    p, ul { margin:10px 0; }
+    .meta { color:var(--muted); }
+    .notice { margin:24px 0; padding:16px 18px; border-left:4px solid var(--cyan); background:#111c29; }
+    footer { margin-top:28px; color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">← Yamora</a>
+    <article>
+      <h1>Privacy Policy</h1>
+      <p class="meta"><strong>Effective date:</strong> 8 September 2026<br>
+      <strong>Operator:</strong> Barak Ben Hur, Israel<br>
+      <strong>Privacy contact:</strong> <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a></p>
+
+      <p class="notice">Yamora is for adults aged 18 or older. Most persistent dating and learning data stays in the user's Chrome profile. Optional anonymous model-improvement contribution begins only after explicit consent.</p>
+
+      <h2>1. What Yamora does</h2>
+      <p>Yamora is a local-first dating browser extension. It helps adults create a dating profile, discover mutually compatible people, express interest, form reciprocal matches, communicate privately, and improve compatibility ordering on the user's device.</p>
+
+      <h2>2. Data processed and kept on the user's device</h2>
+      <p>Yamora may locally process and store:</p>
+      <ul>
+        <li>profile details, photos or other user-selected media, age, gender, relationship intent, preferences, and interests;</li>
+        <li>exact coordinates used to calculate distance locally, plus coarse location material used for peer discovery;</li>
+        <li>Interested and Pass choices, matches, compatibility state, conversation outcomes, and local learning state;</li>
+        <li>messages, reports, cryptographic identity material, encrypted-session metadata, and settings; and</li>
+        <li>features derived locally from pages for which the user granted optional website access.</li>
+      </ul>
+      <p>Yamora does not request Chrome browsing-history permission. Raw page text, page titles, search text, and URLs used for current-page analysis are transient inference inputs and are not retained in Yamora's behavioral database. Users can control or remove optional website access and disable learning.</p>
+
+      <h2>3. Peer and network processing</h2>
+      <p>To provide discovery and communication, Yamora shares a bounded public dating profile, public profile media chosen by the user, reduced compatibility signals, coarse location or discovery material, and user-chosen communications with other Yamora peers. Peer application events, messages, and peer media use authenticated end-to-end encrypted sessions.</p>
+      <p>Relay and network providers necessarily process temporary connection information such as IP addresses while routing traffic. Yamora's signaling relay does not create a persistent database of profiles, exact locations, matches, or message contents. Connection metadata can also be visible to internet and infrastructure providers as necessary to deliver the service.</p>
+
+      <h2>4. Optional anonymous model improvement</h2>
+      <p>Contribution is off by default. Before it is enabled, Yamora presents an in-product disclosure describing the data and purpose and requires the user to take an affirmative consent action. If enabled, an installation may periodically send:</p>
+      <ul>
+        <li>quantized, derived compatibility and reciprocal-feature values;</li>
+        <li>Interested/Pass, mutual-match, and bounded conversation-outcome labels;</li>
+        <li>bounded baseline and model prediction snapshots;</li>
+        <li>coarse day buckets and random pseudonymous installation, export, and example references; and</li>
+        <li>minimum-size aggregate age-band and gender quality cells used to evaluate model performance disparities.</li>
+      </ul>
+      <p>These contributions exclude names, profile or candidate IDs, photos, audio, URLs, raw browsing or search text, exact coordinates, raw behavior vectors, message text, credentials, and payment information. The contributed data is used only to train, evaluate, secure, and improve Yamora's reciprocal matching functionality. It is not used for advertising, data brokerage, creditworthiness, or unrelated profiling.</p>
+
+      <h2>5. Service providers and transfers</h2>
+      <p>Yamora currently uses:</p>
+      <ul>
+        <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay and training collector service, deployed in Frankfurt, Germany;</li>
+        <li><a href="https://www.mongodb.com/legal/privacy-policy" rel="noopener noreferrer">MongoDB Atlas</a> for durable storage of explicitly consented model-improvement exports;</li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Actions</a> for ephemeral, automated model training, evaluation, signing, and rollout; and</li>
+        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution.</li>
+      </ul>
+      <p>These providers process data only as needed to operate, secure, distribute, or improve Yamora. Infrastructure may process data outside Israel, subject to the provider's contractual and security controls.</p>
+
+      <h2>6. Human access and disclosure</h2>
+      <p>Yamora does not sell user data. User data is not used or transferred for personalized, retargeted, or interest-based advertising.</p>
+      <p>Humans do not read contributed training rows except when a user specifically consents for support, when access is necessary for security or abuse response, when required by law, or after the information has been aggregated and de-identified for internal operations. Information may also be disclosed when legally required or as part of a merger, acquisition, or sale of assets, subject to applicable law and continued protection.</p>
+
+      <h2>7. Retention, consent withdrawal, and deletion</h2>
+      <p>Accepted optional model-improvement export batches are retained for up to 730 days unless deleted earlier or longer retention is legally required. Users can pause future sharing or select <strong>Delete contributed copy</strong> inside Yamora. This deletes the installation's retained export batches, revokes its upload token, and clears its sharing consent. A deletion marker prevents later uploads from concealing that removal.</p>
+      <p>The next scheduled model lifecycle retrains without deleted contributions or retires the affected model if the remaining evidence is insufficient. Because the lifecycle runs daily and clients normally check for signed updates every six hours, a previously cached model may remain locally usable for approximately 30 hours after the server-side deletion process begins. Urgent requests can be sent to <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>.</p>
+      <p>Local data remains until the user removes it in Yamora, removes the relevant Chrome profile, or uninstalls the extension, subject to Chrome's behavior. Peer recipients retain communications on their own devices. Provider backups, security records, or legally required records may remain for the period required by provider operations or applicable law.</p>
+
+      <h2>8. User choices and rights</h2>
+      <p>Users can decline optional model contribution without losing access to Yamora's dating features. They can pause sharing and request deletion from within the extension. For access, correction, deletion, objection, consent withdrawal, or another privacy request that cannot be completed in-product, contact <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>. The operator may request enough information to verify the request without collecting unnecessary identity data and will respond within the period required by applicable law.</p>
+
+      <h2>9. Security</h2>
+      <p>Yamora uses HTTPS and WSS for server transmission, authenticated encrypted peer sessions, strict server-side schemas, installation-bound collector credentials, durable database controls, signed and expiring model envelopes, staged rollout, monitoring, and automatic rollback. No system can guarantee absolute security.</p>
+
+      <h2>10. Children</h2>
+      <p>Yamora is intended only for adults aged 18 or older. A person known or reasonably believed to be under 18 is not permitted to use Yamora. Suspected underage use can be reported to <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>; the operator will investigate and delete associated operator-controlled data where appropriate and legally permitted.</p>
+
+      <h2>11. Chrome Web Store Limited Use</h2>
+      <p>Yamora's use and transfer of information received from Google APIs complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data obtained through extension permissions is used only to provide or improve Yamora's disclosed, user-facing dating functionality and to maintain its security and reliability.</p>
+
+      <h2>12. Changes</h2>
+      <p>This policy may be updated when Yamora's practices or legal obligations change. Material changes will be disclosed before they take effect, and renewed consent will be requested where required. The effective date at the top of this page will be updated.</p>
+    </article>
+    <footer>This policy describes Yamora version 0.15.0 and its currently configured services.</footer>
+  </main>
+</body>
+</html>
