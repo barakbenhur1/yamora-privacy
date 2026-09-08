@@ -23,6 +23,6 @@ Use the privacy-page URL in the Chrome Web Store Developer Dashboard.
 - Do not add passwords, MongoDB connection strings, collector tokens, signing
   keys, or other secrets to this repository.
 - The policy reflects Yamora v0.15.0, the Frankfurt Render services, MongoDB
-  Atlas, GitHub Actions, 730-day export retention, and the current explicit
-  opt-in model-improvement flow.
+  Atlas, GitHub Actions, Ko-fi/PayPal voluntary support, 730-day export
+  retention, and the current explicit opt-in model-improvement flow.
 - Obtain jurisdiction-appropriate legal review before a broad public launch.
