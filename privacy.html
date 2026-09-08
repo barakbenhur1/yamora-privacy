@@ -31,7 +31,7 @@
       <strong>Operator:</strong> Barak Ben Hur, Israel<br>
       <strong>Privacy contact:</strong> <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a></p>
 
-      <p class="notice">Yamora is for adults aged 18 or older. Most persistent dating and learning data stays in the user's Chrome profile. Optional anonymous model-improvement contribution begins only after explicit consent.</p>
+      <p class="notice">Yamora is for adults aged 18 or older. Most persistent dating and learning data stays in the user's Chrome profile. Optional privacy-bounded model-improvement contribution begins only after explicit consent.</p>
 
       <h2>1. What Yamora does</h2>
       <p>Yamora is a local-first dating browser extension. It helps adults create a dating profile, discover mutually compatible people, express interest, form reciprocal matches, communicate privately, and improve compatibility ordering on the user's device.</p>
@@ -51,7 +51,7 @@
       <p>To provide discovery and communication, Yamora shares a bounded public dating profile, public profile media chosen by the user, reduced compatibility signals, coarse location or discovery material, and user-chosen communications with other Yamora peers. Peer application events, messages, and peer media use authenticated end-to-end encrypted sessions.</p>
       <p>Relay and network providers necessarily process temporary connection information such as IP addresses while routing traffic. Yamora's signaling relay does not create a persistent database of profiles, exact locations, matches, or message contents. Connection metadata can also be visible to internet and infrastructure providers as necessary to deliver the service.</p>
 
-      <h2>4. Optional anonymous model improvement</h2>
+      <h2>4. Optional pseudonymous model improvement</h2>
       <p>Contribution is off by default. Before it is enabled, Yamora presents an in-product disclosure describing the data and purpose and requires the user to take an affirmative consent action. If enabled, an installation may periodically send:</p>
       <ul>
         <li>quantized, derived compatibility and reciprocal-feature values;</li>
@@ -63,34 +63,33 @@
       <p>These contributions exclude names, profile or candidate IDs, photos, audio, URLs, raw browsing or search text, exact coordinates, raw behavior vectors, message text, credentials, and payment information. The contributed data is used only to train, evaluate, secure, and improve Yamora's reciprocal matching functionality. It is not used for advertising, data brokerage, creditworthiness, or unrelated profiling.</p>
 
       <h2>5. Service providers and transfers</h2>
-      <p>Yamora currently uses:</p>
+      <p>Yamora uses or may use the following service providers depending on which disclosed features are configured and enabled:</p>
       <ul>
-        <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay and training collector service, deployed in Frankfurt, Germany;</li>
-        <li><a href="https://www.mongodb.com/legal/privacy-policy" rel="noopener noreferrer">MongoDB Atlas</a> for durable storage of explicitly consented model-improvement exports;</li>
-        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Actions</a> for ephemeral, automated model training, evaluation, signing, and rollout; and</li>
-        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution;</li>
-        <li><a href="https://more.ko-fi.com/privacy" rel="noopener noreferrer">Ko-fi</a> for Yamora's optional external support page; and</li>
-        <li><a href="https://www.paypal.com/il/legalhub/paypal/privacy-full" rel="noopener noreferrer">PayPal</a> for processing voluntary payments made through that support page.</li>
+        <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay. In production builds with optional model improvement enabled, Render may also host the training collector service;</li>
+        <li><a href="https://www.mongodb.com/legal/privacy-policy" rel="noopener noreferrer">MongoDB Atlas</a>, when optional model improvement is enabled in production, for durable storage of explicitly consented model-improvement exports;</li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Actions</a>, when the automated model-improvement lifecycle is enabled, for ephemeral model training, evaluation, signing, and rollout; and</li>
+        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution.</li>
       </ul>
-      <p>These providers process data only as needed to operate, secure, distribute, or improve Yamora. Infrastructure may process data outside Israel, subject to the provider's contractual and security controls.</p>
+      <p>If a user voluntarily opens Yamora's external support page, <a href="https://more.ko-fi.com/privacy" rel="noopener noreferrer">Ko-fi</a> and its payment providers, which may include <a href="https://www.paypal.com/il/legalhub/paypal/privacy-full" rel="noopener noreferrer">PayPal</a>, process information the user provides directly to them under their own privacy policies. Yamora does not transmit dating-profile, browsing-derived, location, messaging, or model-improvement data to Ko-fi or PayPal.</p>
+      <p>These providers process data only as needed for the relevant disclosed function. Infrastructure may process data outside Israel, subject to the provider's contractual and security controls.</p>
 
       <h2>6. Voluntary support</h2>
-      <p>Yamora may offer a link to <a href="https://ko-fi.com/yamora" rel="noopener noreferrer">Ko-fi</a> where a user can voluntarily support the project. Contributions unlock nothing and do not affect ranking, visibility, matches, features, support priority, or data handling. Ko-fi and PayPal process the transaction under their own terms and privacy policies. Yamora does not receive or store payment-card, bank-account, or PayPal credential information. Yamora stores only local support-prompt and link-open state and does not send that state to peers or the model-improvement collector.</p>
+      <p>Yamora may offer a link to <a href="https://ko-fi.com/yamora" rel="noopener noreferrer">Ko-fi</a> where a user can voluntarily support the project. Contributions unlock nothing and do not affect ranking, visibility, matches, features, support priority, or data handling. Ko-fi and its payment providers process the transaction under their own terms and privacy policies. Yamora does not receive or store payment-card, bank-account, or payment-account credential information. Yamora stores only local support-prompt and link-open state and does not send that state to peers or the model-improvement collector.</p>
 
       <h2>7. Human access and disclosure</h2>
       <p>Yamora does not sell user data. User data is not used or transferred for personalized, retargeted, or interest-based advertising.</p>
-      <p>Humans do not read contributed training rows except when a user specifically consents for support, when access is necessary for security or abuse response, when required by law, or after the information has been aggregated and de-identified for internal operations. Information may also be disclosed when legally required or as part of a merger, acquisition, or sale of assets, subject to applicable law and continued protection.</p>
+      <p>Humans do not read user data except when the user explicitly consents to human access to specific data for support, when access is necessary to investigate security or abuse, when required by applicable law, or when the information has been aggregated and anonymized for permitted internal operations. Information may also be disclosed when legally required or as part of a merger, acquisition, or sale of assets, subject to applicable law and continued protection.</p>
 
       <h2>8. Retention, consent withdrawal, and deletion</h2>
-      <p>Accepted optional model-improvement export batches are retained for up to 730 days unless deleted earlier or longer retention is legally required. Users can pause future sharing or select <strong>Delete contributed copy</strong> inside Yamora. This deletes the installation's retained export batches, revokes its upload token, and clears its sharing consent. A deletion marker prevents later uploads from concealing that removal.</p>
+      <p>When optional production model improvement is enabled, accepted model-improvement export batches are retained for up to 730 days unless deleted earlier or longer retention is legally required. Users can pause future sharing or select <strong>Delete contributed copy</strong> inside Yamora. This deletes the installation's retained export batches, revokes its upload token, and clears its sharing consent. A deletion marker prevents later uploads from concealing that removal.</p>
       <p>The next scheduled model lifecycle retrains without deleted contributions or retires the affected model if the remaining evidence is insufficient. Because the lifecycle runs daily and clients normally check for signed updates every six hours, a previously cached model may remain locally usable for approximately 30 hours after the server-side deletion process begins. Urgent requests can be sent to <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>.</p>
       <p>Local data remains until the user removes it in Yamora, removes the relevant Chrome profile, or uninstalls the extension, subject to Chrome's behavior. Peer recipients retain communications on their own devices. Provider backups, security records, or legally required records may remain for the period required by provider operations or applicable law.</p>
 
       <h2>9. User choices and rights</h2>
-      <p>Users can decline optional model contribution without losing access to Yamora's dating features. They can pause sharing and request deletion from within the extension. For access, correction, deletion, objection, consent withdrawal, or another privacy request that cannot be completed in-product, contact <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>. The operator may request enough information to verify the request without collecting unnecessary identity data and will respond within the period required by applicable law.</p>
+      <p>Users can decline optional model contribution without losing access to Yamora's dating features. They can pause sharing and request deletion from within the extension when that feature is configured. For access, correction, deletion, objection, consent withdrawal, or another privacy request that cannot be completed in-product, contact <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>. The operator may request enough information to verify the request without collecting unnecessary identity data and will respond within the period required by applicable law.</p>
 
       <h2>10. Security</h2>
-      <p>Yamora uses HTTPS and WSS for server transmission, authenticated encrypted peer sessions, strict server-side schemas, installation-bound collector credentials, durable database controls, signed and expiring model envelopes, staged rollout, monitoring, and automatic rollback. No system can guarantee absolute security.</p>
+      <p>Yamora uses HTTPS and WSS for server transmission, authenticated encrypted peer sessions, strict server-side schemas, installation-bound collector credentials when model contribution is enabled, durable database controls for contributed data, signed and expiring model envelopes, staged rollout, monitoring, and automatic rollback where the corresponding production services are configured. No system can guarantee absolute security.</p>
 
       <h2>11. Children</h2>
       <p>Yamora is intended only for adults aged 18 or older. A person known or reasonably believed to be under 18 is not permitted to use Yamora. Suspected underage use can be reported to <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>; the operator will investigate and delete associated operator-controlled data where appropriate and legally permitted.</p>
@@ -101,7 +100,7 @@
       <h2>13. Changes</h2>
       <p>This policy may be updated when Yamora's practices or legal obligations change. Material changes will be disclosed before they take effect, and renewed consent will be requested where required. The effective date at the top of this page will be updated.</p>
     </article>
-    <footer>This policy describes Yamora version 0.15.0 and its currently configured services.</footer>
+    <footer>This policy describes Yamora version 0.15.0. Optional service descriptions apply only when those services are configured and enabled in the distributed build.</footer>
   </main>
 </body>
 </html>
