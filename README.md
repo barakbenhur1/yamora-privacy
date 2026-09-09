@@ -22,10 +22,10 @@ Use the privacy-page URL in the Chrome Web Store Developer Dashboard.
 
 - Do not add passwords, MongoDB connection strings, collector tokens, signing
   keys, or other secrets to this repository.
-- The policy reflects Yamora v0.15.2, the Render services, MongoDB Atlas,
+- The policy reflects Yamora desktop v0.15.2 plus the v0.15.3 mobile companion, the Render services, MongoDB Atlas,
   GitHub Actions, the optional BigDataCloud network/IP-based approximate city
   lookup, Ko-fi/PayPal voluntary support, 730-day export retention, and the
-  current explicit opt-in model-improvement flow.
+  current explicit opt-in model-improvement flow, and privacy-preserving optional mobile Web Push.
 - Yamora does not send device latitude or longitude to BigDataCloud; the optional
   city lookup uses the provider's network/IP-derived approximate locality.
 - Obtain jurisdiction-appropriate legal review before a broad public launch.
