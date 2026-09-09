@@ -1,0 +1,106 @@
+name: Apply mobile push privacy update
+on:
+  push:
+    branches: [ main ]
+    paths: [ '.github/workflows/mobile-push-privacy-update.yml' ]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update published privacy policy
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('privacy.html')
+          s = p.read_text()
+
+          s = s.replace(
+            "Most persistent dating and learning data stays in the user's Chrome profile. Optional privacy-bounded model-improvement contribution begins only after explicit consent.",
+            "Most persistent dating, messaging, and learning data stays in the user's own Chrome profile or mobile browser storage. Optional privacy-bounded model-improvement contribution and mobile push notifications begin only after the user's explicit choice."
+          )
+          s = s.replace(
+            "Yamora is a local-first dating browser extension. It helps adults create a dating profile, discover mutually compatible people, express interest, form reciprocal matches, communicate privately, and improve compatibility ordering on the user's device.",
+            "Yamora is a local-first dating product with a Chrome extension and a mobile PWA companion. It helps adults create a dating profile, discover mutually compatible people, express interest, form reciprocal matches, communicate privately, and improve compatibility ordering on the user's device."
+          )
+
+          marker = '''      <h2>4. Optional pseudonymous model improvement</h2>'''
+          push_section = '''      <h2>4. Optional mobile push notifications</h2>\n      <p>On supported mobile browsers, push notifications are off by default and are enabled only after the user chooses to enable them and the browser grants notification permission. Yamora creates a random opaque push-inbox capability and a separate random management secret. The relay associates the browser's PushSubscription with the opaque inbox and stores only a SHA-256 hash of the management secret; it does not register a Yamora profile ID or candidate ID with the push service.</p>\n      <p>Push payloads contain only the generic event type <strong>message</strong> or <strong>match</strong>. Yamora does not include message text, profile identity, names, photos, voice introductions, exact or coarse location, compatibility data, browsing-derived data, or peer-session encryption keys in push payloads. The browser or operating-system push infrastructure necessarily processes the PushSubscription endpoint and ordinary delivery/network metadata needed to deliver the notification.</p>\n      <p>Push registrations are retained for up to 90 days since their last update unless the user disables notifications, the subscription becomes invalid, or the registration is removed earlier. Disabling notifications unregisters the browser subscription when possible and rotates or clears the local push capability.</p>\n\n      <h2>5. Optional pseudonymous model improvement</h2>'''
+          if marker not in s:
+              raise SystemExit('model improvement heading marker missing')
+          s = s.replace(marker, push_section, 1)
+
+          for old, new in [
+            ('<h2>5. Service providers and transfers</h2>', '<h2>6. Service providers and transfers</h2>'),
+            ('<h2>6. Voluntary support</h2>', '<h2>7. Voluntary support</h2>'),
+            ('<h2>7. Human access and disclosure</h2>', '<h2>8. Human access and disclosure</h2>'),
+            ('<h2>8. Retention, consent withdrawal, and deletion</h2>', '<h2>9. Retention, consent withdrawal, and deletion</h2>'),
+            ('<h2>9. User choices and rights</h2>', '<h2>10. User choices and rights</h2>'),
+            ('<h2>10. Security</h2>', '<h2>11. Security</h2>'),
+            ('<h2>11. Children</h2>', '<h2>12. Children</h2>'),
+            ('<h2>12. Chrome Web Store Limited Use</h2>', '<h2>13. Chrome Web Store Limited Use</h2>'),
+            ('<h2>13. Changes</h2>', '<h2>14. Changes</h2>')
+          ]:
+              s = s.replace(old, new, 1)
+
+          old_render = '''        <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay. In production builds with optional model improvement enabled, Render may also host the training collector service;</li>'''
+          new_render = '''        <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay, optional mobile push-registration service, and, when configured, mobile PWA hosting. In production builds with optional model improvement enabled, Render may also host the training collector service;</li>'''
+          if old_render not in s:
+              raise SystemExit('Render provider marker missing')
+          s = s.replace(old_render, new_render, 1)
+
+          chrome_marker = '''        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution.</li>'''
+          chrome_new = '''        <li>the browser or operating-system push-delivery infrastructure selected by the user's device when optional mobile notifications are enabled; and</li>\n        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution.</li>'''
+          if chrome_marker not in s:
+              raise SystemExit('Chrome provider marker missing')
+          s = s.replace(chrome_marker, chrome_new, 1)
+
+          retention_marker = '''      <p>Local data remains until the user removes it in Yamora, removes the relevant Chrome profile, or uninstalls the extension, subject to Chrome's behavior. Peer recipients retain communications on their own devices. Provider backups, security records, or legally required records may remain for the period required by provider operations or applicable law.</p>'''
+          retention_new = '''      <p>Optional mobile push registrations are retained for up to 90 days since their last update and may be removed earlier when notifications are disabled or the browser push subscription becomes invalid.</p>\n      <p>Local data remains until the user removes it in Yamora, removes the relevant Chrome profile or mobile site data, or uninstalls the extension/PWA, subject to browser and operating-system behavior. Peer recipients retain communications on their own devices. Provider backups, security records, or legally required records may remain for the period required by provider operations or applicable law.</p>'''
+          if retention_marker not in s:
+              raise SystemExit('retention marker missing')
+          s = s.replace(retention_marker, retention_new, 1)
+
+          choices_marker = '''      <p>Users can decline optional model contribution without losing access to Yamora's dating features. They can pause sharing and request deletion from within the extension when that feature is configured. For access, correction, deletion, objection, consent withdrawal, or another privacy request that cannot be completed in-product, contact <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>. The operator may request enough information to verify the request without collecting unnecessary identity data and will respond within the period required by applicable law.</p>'''
+          choices_new = '''      <p>Users can decline optional model contribution and optional mobile notifications without losing access to Yamora's dating features. They can disable mobile notifications, pause model-improvement sharing, and request deletion from within Yamora when the corresponding feature is configured. For access, correction, deletion, objection, consent withdrawal, or another privacy request that cannot be completed in-product, contact <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a>. The operator may request enough information to verify the request without collecting unnecessary identity data and will respond within the period required by applicable law.</p>'''
+          if choices_marker not in s:
+              raise SystemExit('choices marker missing')
+          s = s.replace(choices_marker, choices_new, 1)
+
+          s = s.replace(
+            'This policy describes Yamora version 0.15.2. Optional service descriptions apply only when those services are configured and enabled in the distributed build.',
+            'This policy describes Yamora desktop version 0.15.2 and the v0.15.3 mobile companion alpha. Optional service descriptions apply only when those services are configured and enabled in the distributed build.'
+          )
+          p.write_text(s)
+
+          r = Path('README.md')
+          t = r.read_text()
+          t = t.replace(
+            '- The policy reflects Yamora v0.15.2, the Render services, MongoDB Atlas,',
+            '- The policy reflects Yamora desktop v0.15.2 plus the v0.15.3 mobile companion, the Render services, MongoDB Atlas,'
+          )
+          t = t.replace(
+            '  current explicit opt-in model-improvement flow.',
+            '  current explicit opt-in model-improvement flow, and privacy-preserving optional mobile Web Push.'
+          )
+          r.write_text(t)
+          PY
+      - name: Verify privacy push boundary
+        run: |
+          grep -q 'opaque push-inbox capability' privacy.html
+          grep -q 'generic event type <strong>message</strong> or <strong>match</strong>' privacy.html
+          grep -q 'does not include message text' privacy.html
+          grep -q 'up to 90 days' privacy.html
+          grep -q 'v0.15.3 mobile companion' privacy.html
+      - name: Commit policy and remove helper
+        run: |
+          git config user.name 'barakbenhur1'
+          git config user.email '78704946+barakbenhur1@users.noreply.github.com'
+          git add privacy.html README.md
+          git rm .github/workflows/mobile-push-privacy-update.yml
+          git commit -m 'docs: publish mobile push privacy terms'
+          git push
