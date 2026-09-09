@@ -1,0 +1,30 @@
+name: Yamora network privacy alignment
+on:
+  push:
+    paths:
+      - '.github/workflows/yamora-network-privacy.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply privacy alignment
+        run: python3 tools/patch-network-privacy.py
+      - name: Verify policy
+        run: |
+          set -euo pipefail
+          grep -q 'MongoDB-backed push registry' privacy.html
+          grep -q 'Cloudflare' privacy.html
+          grep -q 'public STUN service' privacy.html
+          grep -q 'opaque mobile push registrations' privacy.html
+      - name: Commit and self-clean
+        run: |
+          set -euo pipefail
+          git config user.name 'barakbenhur1'
+          git config user.email '78704946+barakbenhur1@users.noreply.github.com'
+          git rm .github/workflows/yamora-network-privacy.yml tools/patch-network-privacy.py
+          git add privacy.html
+          git commit -m 'docs: align privacy policy with Mongo push and STUN'
+          git push
