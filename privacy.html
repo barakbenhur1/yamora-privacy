@@ -27,7 +27,7 @@
     <a class="back" href="index.html">← Yamora</a>
     <article>
       <h1>Privacy Policy</h1>
-      <p class="meta"><strong>Effective date:</strong> 8 September 2026<br>
+      <p class="meta"><strong>Effective date:</strong> 9 September 2026<br>
       <strong>Operator:</strong> Barak Ben Hur, Israel<br>
       <strong>Privacy contact:</strong> <a href="mailto:yamora.privacy@gmail.com">yamora.privacy@gmail.com</a></p>
 
@@ -45,6 +45,7 @@
         <li>messages, reports, cryptographic identity material, encrypted-session metadata, and settings; and</li>
         <li>features derived locally from pages for which the user granted optional website access.</li>
       </ul>
+      <p>Exact device latitude and longitude stay in Yamora's local profile state and are not sent to the public city-name lookup service. When the user allows the optional city-name lookup, Yamora may make a client-side request to BigDataCloud without including device latitude or longitude. BigDataCloud necessarily receives normal network information such as the requesting IP address and returns an approximate locality derived from network location. The resulting city/area label is editable by the user.</p>
       <p>Yamora does not request Chrome browsing-history permission. Raw page text, page titles, search text, and URLs used for current-page analysis are transient inference inputs and are not retained in Yamora's behavioral database. Users can control or remove optional website access and disable learning.</p>
 
       <h2>3. Peer and network processing</h2>
@@ -67,6 +68,7 @@
       <ul>
         <li><a href="https://render.com/privacy" rel="noopener noreferrer">Render</a> for the signaling relay. In production builds with optional model improvement enabled, Render may also host the training collector service;</li>
         <li><a href="https://www.mongodb.com/legal/privacy-policy" rel="noopener noreferrer">MongoDB Atlas</a>, when optional model improvement is enabled in production, for durable storage of explicitly consented model-improvement exports;</li>
+        <li><a href="https://www.bigdatacloud.com/privacy" rel="noopener noreferrer">BigDataCloud</a> for the optional client-side approximate city/area lookup. Yamora does not include device latitude or longitude in this request; the provider receives normal network information such as IP address as part of delivering the request;</li>
         <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Actions</a>, when the automated model-improvement lifecycle is enabled, for ephemeral model training, evaluation, signing, and rollout; and</li>
         <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Chrome and the Chrome Web Store</a> for extension execution and distribution.</li>
       </ul>
@@ -100,7 +102,7 @@
       <h2>13. Changes</h2>
       <p>This policy may be updated when Yamora's practices or legal obligations change. Material changes will be disclosed before they take effect, and renewed consent will be requested where required. The effective date at the top of this page will be updated.</p>
     </article>
-    <footer>This policy describes Yamora version 0.15.0. Optional service descriptions apply only when those services are configured and enabled in the distributed build.</footer>
+    <footer>This policy describes Yamora version 0.15.2. Optional service descriptions apply only when those services are configured and enabled in the distributed build.</footer>
   </main>
 </body>
 </html>
