@@ -1,0 +1,31 @@
+name: Verify Yamora Mongo Push
+on: [push]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe services
+        run: |
+          curl -fsSL https://orbit-training-collector.onrender.com/ready -o /tmp/collector.json
+          curl -fsSL https://orbit-relay-rql2.onrender.com/health -o /tmp/relay.json
+          cat /tmp/collector.json
+          echo
+          cat /tmp/relay.json
+          echo
+          node - <<'NODE'
+          const fs=require('fs');
+          const c=JSON.parse(fs.readFileSync('/tmp/collector.json','utf8'));
+          const r=JSON.parse(fs.readFileSync('/tmp/relay.json','utf8'));
+          if(c.ok!==true || c.backend!=='mongodb' || c.durable!==true) process.exit(1);
+          if(r.ok!==true || r.pushNotificationServiceConfigured!==true || r.pushPersistence!==true) process.exit(2);
+          NODE
+      - name: Remove probe workflow
+        run: |
+          git config user.name 'barakbenhur1'
+          git config user.email '78704946+barakbenhur1@users.noreply.github.com'
+          git rm .github/workflows/probe-yamora-mongo-push.yml
+          git commit -m 'chore: remove Mongo push probe'
+          git push
